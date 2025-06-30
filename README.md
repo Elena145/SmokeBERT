@@ -1,6 +1,5 @@
 # SmokeBERT
-*SmokeBERT** is a fine-tuned BERT model designed to extract quantitative information from unstructured clinical notes. \
-The current version focuses on identifying smoking-related entities: “packs per day”, “cigarettes per day”, “years smoked”, “pack years”, “years since quitting”, and “quit in the year”.\
+**SmokeBERT** is a fine-tuned BERT model designed to extract quantitative information from unstructured clinical notes. \
 The code will be released soon.
 
 ## Features
@@ -8,7 +7,19 @@ The code will be released soon.
 - Trained on Medical token classification task
 - Model weights saved in `model.safetensors` format
 
-## Datasets
+## Datasets Used
+
+Our model was trained on a combined corpus of:
+- The **Smoking Status Dataset**
+- The **MIMIC-III Clinical Notes**
+
+Manually annotated variables:
+- `packs per day`
+- `cigarettes per day`
+- `years smoked`
+- `pack years`
+- `years since quitting` (YSQ)
+- `quit in the year`
 
 
 ## Prerequisites
@@ -32,44 +43,61 @@ pip install -r requirements.txt
 pip install transformers torch safetensors
 ```
 
-## Inference
+## Inference (General)
 
 ### 1. Load Model and Tokenizer 
 
-```bash
-from transformers import BertTokenizerFast, BertForTokenClassification
-import torch
+Download the weights from the [GitHub release page](https://github.com/Elena145/SmokeBERT/releases), and unzip them into a folder named `SavedBioModel/`.
 
-model_path = "shopee-ner" 
+```python
+from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-tokenizer = BertTokenizerFast.from_pretrained(model_path)
-model = BertForTokenClassification.from_pretrained(model_path)
-model.eval()
+model = AutoModelForTokenClassification.from_pretrained("./SavedBioModel")
+tokenizer = AutoTokenizer.from_pretrained("./SavedBioModel")
 ```
 
 ### 2. Run Prediction
-```bash
-def ner_predict(text):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True)
-    with torch.no_grad():
-        outputs = model(**inputs)
-    predictions = torch.argmax(outputs.logits, dim=-1)
-    tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
-    label_ids = predictions[0].tolist()
+```python
+sentence = "QUIT SMOKING TWO YEARS AGO."
 
-    results = []
-    for token, label_id in zip(tokens, label_ids):
-        if token not in tokenizer.all_special_tokens:
-            results.append((token, model.config.id2label[label_id]))
-    return results
+inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True)
+outputs = model(**inputs)
+logits = outputs.logits
+pred_ids = logits.argmax(dim=-1)
 
-# Example
-clinical_note = "Patient smoked 2 packs per day for 10 years but quit in 2015."
-print(ner_predict(clinical_note))
+tokens = tokenizer.convert_ids_to_tokens(inputs['input_ids'][0])
+labels = pred_ids[0].tolist()
 
+# Use included formatter
+from format_utils import format_predictions, simplified_label_map, paired_labels
+print(format_predictions(tokens, labels, simplified_label_map, paired_labels))
 ```
 
-### 4. Optional: Run the provided notebook:
+Expected output: 
+```yaml
+YSQ: TWO YEARS
+```
+
+## Inference (Sentence)
+Edit and run `test_sentence.py`.
+
+Example content:
+
+```python
+sentence = "QUIT SMOKING TWO YEARS AGO."
+```
+
+```bash
+python test_sentence.py
+```
+
+Expected output: 
+```yaml
+Text: QUIT SMOKING TWO YEARS AGO.
+Output: YSQ: TWO YEARS
+```
+
+### Optional: Run the provided notebook:
 ```bash
 jupyter notebook   __.ipynb
 ```
