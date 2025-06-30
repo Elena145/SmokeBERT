@@ -24,7 +24,8 @@ Manually annotated variables:
 
 ## Prerequisites
 
-- Obtain API keys for HuggingFace.
+- Python 3.8+
+- Optional: `.env` file with Hugging Face token for secure downloads
 
 
 ## Setup Instructions
