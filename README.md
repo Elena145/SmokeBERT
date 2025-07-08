@@ -40,11 +40,29 @@ cd smokebert
 ### 2. Install Dependencies
 
 ```bash
-pip install -r requirements.txt
 pip install transformers torch safetensors
 ```
 
-## Inference (General)
+## Inference (Sentence)
+
+Example content:
+
+```python
+sentence = "QUIT SMOKING TWO YEARS AGO."
+```
+
+run `test_sentence.py`.
+```bash
+python test_sentence.py
+```
+
+Expected output: 
+```yaml
+Text: QUIT SMOKING TWO YEARS AGO.
+Output: YSQ: TWO YEARS
+```
+
+## Optional: Inference (Manually)
 
 ### 1. Load Model and Tokenizer 
 
@@ -79,25 +97,6 @@ Expected output:
 YSQ: TWO YEARS
 ```
 
-## Inference (Sentence)
-
-Example content:
-
-```python
-sentence = "QUIT SMOKING TWO YEARS AGO."
-```
-
-run `test_sentence.py`.
-```bash
-python test_sentence.py
-```
-
-Expected output: 
-```yaml
-Text: QUIT SMOKING TWO YEARS AGO.
-Output: YSQ: TWO YEARS
-```
 
 
-
-License
+License: This project is licensed under the MIT License.
