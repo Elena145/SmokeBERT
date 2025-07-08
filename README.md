@@ -48,13 +48,13 @@ pip install transformers torch safetensors
 
 ### 1. Load Model and Tokenizer 
 
-Download the weights from the [GitHub release page](https://github.com/Elena145/SmokeBERT/releases), and unzip them into a folder named `SavedBioModel/`.
+Download the weights from the [GitHub release page](https://github.com/Elena145/SmokeBERT/releases), and unzip them into a folder named `SavedModel/`.
 
 ```python
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 
-model = AutoModelForTokenClassification.from_pretrained("./SavedBioModel")
-tokenizer = AutoTokenizer.from_pretrained("./SavedBioModel")
+model = AutoModelForTokenClassification.from_pretrained("./SavedModel")
+tokenizer = AutoTokenizer.from_pretrained("./SavedModel")
 ```
 
 ### 2. Run Prediction
@@ -80,7 +80,6 @@ YSQ: TWO YEARS
 ```
 
 ## Inference (Sentence)
-Edit and run `test_sentence.py`.
 
 Example content:
 
@@ -88,6 +87,7 @@ Example content:
 sentence = "QUIT SMOKING TWO YEARS AGO."
 ```
 
+run `test_sentence.py`.
 ```bash
 python test_sentence.py
 ```
@@ -98,10 +98,6 @@ Text: QUIT SMOKING TWO YEARS AGO.
 Output: YSQ: TWO YEARS
 ```
 
-### Optional: Run the provided notebook:
-```bash
-jupyter notebook   __.ipynb
-```
 
 
 License
