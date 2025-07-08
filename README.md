@@ -10,8 +10,8 @@ The code will be released soon.
 ## Datasets Used
 
 Our model was trained on a combined corpus of:
-- The **Smoking Status Dataset**
-- The **MIMIC-III Clinical Notes**
+- The **Smoking Status Dataset**  (i2b2 challenge and more)
+- The [**MIMIC-III Clinical Notes** ](https://physionet.org/content/mimiciii/1.4/)
 
 Manually annotated variables:
 - `packs per day`
