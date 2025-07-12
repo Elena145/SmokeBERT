@@ -51,9 +51,9 @@ Example content:
 sentence = "QUIT SMOKING TWO YEARS AGO."
 ```
 
-run `test_sentence.py`.
+run `test_sentence.py` and pass the input.
 ```bash
-python test_sentence.py
+python test_sentence.py "QUIT SMOKING TWO YEARS AGO"
 ```
 
 Expected output: 
