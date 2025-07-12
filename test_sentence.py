@@ -24,7 +24,10 @@ model = AutoModelForTokenClassification.from_pretrained("./SavedModel")
 tokenizer = AutoTokenizer.from_pretrained("./SavedModel")
 
 
-sentence = "QUIT SMOKING TWO YEARS AGO."
+if len(sys.argv) > 1:
+    sentence = " ".join(sys.argv[1:])
+else:
+    sentence = "QUIT SMOKING TWO YEARS AGO."
 
 
 # Tokenize the sentence
