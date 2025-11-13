@@ -97,6 +97,8 @@ YSQ: TWO YEARS
 ```
 
 ### 3. Finetuning Cross Validation Code
-Script: train_bert.py
+1. Install pacakage in requirement.txt
+2. Run script train_bert.py
+3. file_example.csv contains example training data
 
 License: This project is licensed under the MIT License.
