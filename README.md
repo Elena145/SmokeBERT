@@ -1,5 +1,5 @@
 # SmokeBERT
-**SmokeBERT** is a fine-tuned BERT model designed to extract quantitative information from unstructured clinical notes. \
+**SmokeBERT** is a fine-tuned BERT model designed to extract quantitative information from unstructured clinical notes.
 
 ## Features
 - Based on HuggingFace Transformers
