@@ -1,0 +1,8 @@
+transformers
+datasets
+sentencepiece
+seqeval
+nltk
+accelerate
+spacy
+evaluate
