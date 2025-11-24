@@ -3,7 +3,7 @@
 
 ## Publications
 - JCO Clinical Cancer Informatics: TBD
-- Priprint: https://pubmed.ncbi.nlm.nih.gov/40585120/
+- Preprint: https://pubmed.ncbi.nlm.nih.gov/40585120/
 
 ## Features
 - Based on HuggingFace Transformers
