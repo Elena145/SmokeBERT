@@ -1,5 +1,9 @@
-# SmokeBERT
-**SmokeBERT** is a fine-tuned BERT-based model designed to extract quantitative information from unstructured clinical notes.
+<p align="center">
+  <img width="224" height="224" alt="SmokeBERT Logo" src="https://github.com/user-attachments/assets/680d11b9-dc9f-41b8-ae10-fa5508b83c03" />
+</p>
+
+# SmokeBERT: A Bidirectional Encoder Representations From Transformers–Based Model for Quantitative Smoking History Extraction From Clinical Narratives to Improve Lung Cancer Screening
+**SmokeBERT** is a fine-tuned BERT-based model designed to extract quantitative smoking information from unstructured clinical notes.
 
 ## Publications
 - JCO Clinical Cancer Informatics: https://ascopubs.org/doi/10.1200/CCI-25-00223
