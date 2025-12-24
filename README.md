@@ -2,7 +2,7 @@
 **SmokeBERT** is a fine-tuned BERT-based model designed to extract quantitative information from unstructured clinical notes.
 
 ## Publications
-- JCO Clinical Cancer Informatics: TBD
+- JCO Clinical Cancer Informatics: https://ascopubs.org/doi/10.1200/CCI-25-00223
 - Preprint: https://pubmed.ncbi.nlm.nih.gov/40585120/
 
 ## Features
